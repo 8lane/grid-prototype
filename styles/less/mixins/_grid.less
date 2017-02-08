@@ -1,0 +1,237 @@
+// Grid system
+//
+// Generate semantic grid columns with these mixins.
+
+// Centered container element
+.container-fixed(@gutter: @grid-gutter-width) {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  floor((@gutter / 2));
+  padding-right: ceil((@gutter / 2));
+  &:extend(.clearfix all);
+}
+
+// Centered container element with gutter widths that vary by breakpoint
+.container-fixed--vary-gutter(
+  @gutter-xs: @grid-gutter-width-xs;
+  @gutter-sm: @grid-gutter-width-sm;
+  @gutter-md: @grid-gutter-width-md;
+  @gutter-lg: @grid-gutter-width-lg
+) {
+  .container-fixed(@gutter-xs);
+  @media (min-width: @screen-sm-min) {
+    .container-fixed(@gutter-sm);
+  }
+  @media (min-width: @screen-md-min) {
+    .container-fixed(@gutter-md);
+  }
+  @media (min-width: @screen-lg-min) {
+    .container-fixed(@gutter-lg);
+  }
+}
+
+// Creates a wrapper for a series of columns
+.make-row(@gutter: @grid-gutter-width) {
+  margin-left:  ceil((@gutter / -2));
+  margin-right: floor((@gutter / -2));
+  &:extend(.clearfix all);
+}
+
+// Creates a wrapper for a series of columns with gutter widths that vary
+// by breakpoint
+.make-row--vary-gutter(
+  @gutter-xs: @grid-gutter-width-xs;
+  @gutter-sm: @grid-gutter-width-sm;
+  @gutter-md: @grid-gutter-width-md;
+  @gutter-lg: @grid-gutter-width-lg
+) {
+  .make-row(@gutter-xs);
+  @media (min-width: @screen-sm-min) {
+    .make-row(@gutter-sm);
+  }
+  @media (min-width: @screen-md-min) {
+    .make-row(@gutter-md);
+  }
+  @media (min-width: @screen-lg-min) {
+    .make-row(@gutter-lg);
+  }
+}
+
+// Generate the extra small columns
+.make-xs-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  float: left;
+  width: percentage((@columns / @grid-columns));
+  min-height: 1px;
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+}
+.make-xs-column-offset(@columns) {
+  margin-left: percentage((@columns / @grid-columns));
+}
+.make-xs-column-push(@columns) {
+  left: percentage((@columns / @grid-columns));
+}
+.make-xs-column-pull(@columns) {
+  right: percentage((@columns / @grid-columns));
+}
+
+.make-xs-column--vary-gutter(
+  @columns;
+  @gutter-xs: @grid-gutter-width-xs;
+  @gutter-sm: @grid-gutter-width-sm;
+  @gutter-md: @grid-gutter-width-md;
+  @gutter-lg: @grid-gutter-width-lg
+) {
+  .make-xs-column(@columns, @gutter-xs);
+  @media (min-width: @screen-sm-min) {
+    .make-xs-column(@columns, @gutter-sm);
+  }
+  @media (min-width: @screen-md-min) {
+    .make-xs-column(@columns, @gutter-md);
+  }
+  @media (min-width: @screen-lg-min) {
+    .make-xs-column(@columns, @gutter-lg);
+  }
+}
+
+// Generate the small columns
+.make-sm-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  @media (min-width: @screen-sm-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-offset(@columns) {
+  @media (min-width: @screen-sm-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-push(@columns) {
+  @media (min-width: @screen-sm-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-pull(@columns) {
+  @media (min-width: @screen-sm-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+.make-sm-column--vary-gutter(
+  @columns;
+  @gutter-xs: @grid-gutter-width-xs;
+  @gutter-sm: @grid-gutter-width-sm;
+  @gutter-md: @grid-gutter-width-md;
+  @gutter-lg: @grid-gutter-width-lg
+) {
+  .make-sm-column(@columns, @gutter-xs);
+  @media (min-width: @screen-sm-min) {
+    .make-sm-column(@columns, @gutter-sm);
+  }
+  @media (min-width: @screen-md-min) {
+    .make-sm-column(@columns, @gutter-md);
+  }
+  @media (min-width: @screen-lg-min) {
+    .make-sm-column(@columns, @gutter-lg);
+  }
+}
+
+// Generate the medium columns
+.make-md-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  @media (min-width: @screen-md-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-offset(@columns) {
+  @media (min-width: @screen-md-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-push(@columns) {
+  @media (min-width: @screen-md-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-pull(@columns) {
+  @media (min-width: @screen-md-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+.make-md-column--vary-gutter(
+  @columns;
+  @gutter-xs: @grid-gutter-width-xs;
+  @gutter-sm: @grid-gutter-width-sm;
+  @gutter-md: @grid-gutter-width-md;
+  @gutter-lg: @grid-gutter-width-lg
+) {
+  .make-md-column(@columns, @gutter-xs);
+  @media (min-width: @screen-sm-min) {
+    .make-md-column(@columns, @gutter-sm);
+  }
+  @media (min-width: @screen-md-min) {
+    .make-md-column(@columns, @gutter-md);
+  }
+  @media (min-width: @screen-lg-min) {
+    .make-md-column(@columns, @gutter-lg);
+  }
+}
+
+// Generate the large columns
+.make-lg-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  @media (min-width: @screen-lg-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-offset(@columns) {
+  @media (min-width: @screen-lg-min) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-push(@columns) {
+  @media (min-width: @screen-lg-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-pull(@columns) {
+  @media (min-width: @screen-lg-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+.make-lg-column--vary-gutter(
+  @columns;
+  @gutter-xs: @grid-gutter-width-xs;
+  @gutter-sm: @grid-gutter-width-sm;
+  @gutter-md: @grid-gutter-width-md;
+  @gutter-lg: @grid-gutter-width-lg
+) {
+  .make-lg-column(@columns, @gutter-xs);
+  @media (min-width: @screen-sm-min) {
+    .make-lg-column(@columns, @gutter-sm);
+  }
+  @media (min-width: @screen-md-min) {
+    .make-lg-column(@columns, @gutter-md);
+  }
+  @media (min-width: @screen-lg-min) {
+    .make-lg-column(@columns, @gutter-lg);
+  }
+}

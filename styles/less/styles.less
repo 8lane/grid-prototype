@@ -1,0 +1,47 @@
+/* https://github.com/lastfm/bootstrap/commit/2bf0408dccb97594ffddc9fd03f9cdfd061d3194 */
+
+@import '../custom-variables.less';
+
+@import 'mixins/_grid.less';
+@import 'mixins/_grid-framework.less';
+
+@import '../bootstrap-mixins.less';
+@import '../bootstrap-imports.less';
+
+div[class^="col"] .inner {
+  display: block;
+  border: 1px dashed cornflowerblue;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+p {
+  font-size: 22px;
+}
+
+.container {
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+.custom-container {
+  padding-left:  (@grid-gutter-width-xs);
+  padding-right: (@grid-gutter-width-xs);
+  border: 1px dashed cornflowerblue;
+
+  @media (min-width: @screen-sm-min) {
+    padding-left:  (@grid-gutter-width-sm);
+    padding-right: (@grid-gutter-width-sm);
+  }
+  @media (min-width: @screen-md-min) {
+    padding-left:  (@grid-gutter-width-md);
+    padding-right: (@grid-gutter-width-md);
+  }
+  @media (min-width: @screen-lg-min) {
+    padding-left:  (@grid-gutter-width-lg);
+    padding-right: (@grid-gutter-width-lg);
+  }
+}
