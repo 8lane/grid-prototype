@@ -1,4 +1,7 @@
 /* https://github.com/lastfm/bootstrap/commit/2bf0408dccb97594ffddc9fd03f9cdfd061d3194 */
+/* 18 gutter */
+/* 18 gutter */
+/* 20 gutter */
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -1601,7 +1604,7 @@ pre code {
 }
 @media (min-width: 768px) {
   .container {
-    width: 772px;
+    width: 768px;
   }
 }
 @media (min-width: 992px) {
@@ -6810,6 +6813,7 @@ div[class^="col"] .inner {
   display: block;
   border: 1px dashed cornflowerblue;
   margin-bottom: 20px;
+  min-height: 50px;
 }
 h1 {
   margin-top: 0;
@@ -6820,6 +6824,9 @@ p {
 .container {
   padding-top: 10px;
   padding-bottom: 0px;
+}
+input {
+  width: 100%;
 }
 .custom-container {
   padding-left: 14px;
